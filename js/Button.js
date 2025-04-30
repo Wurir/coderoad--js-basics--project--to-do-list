@@ -17,7 +17,9 @@ class Button {
         button.style.cursor = 'pointer'
         button.style.minWidth = '100px'
 
-        button.addEventListener('click', ()=> this.onClick())
+        if(this.onClick){
+            button.addEventListener('click', ()=> this.onClick())
+        }  
 
         return button
     }
