@@ -11,8 +11,7 @@ class Form{
 
         form.style.display = 'flex'
         form.style.justifyContent = 'space-between'
-        form.style.paddingTop = '4px'
-        form.style.paddingBottom = '4px'
+        form.style.padding = '4px'
         form.style.borderRadius = '4px'
         form.style.marginBottom = '4px'
 

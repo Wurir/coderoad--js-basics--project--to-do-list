@@ -15,6 +15,7 @@ class Button {
         button.style.borderRadius = '4px'
         button.style.padding = '4px'
         button.style.cursor = 'pointer'
+        button.style.minWidth = '100px'
 
         button.addEventListener('click', ()=> this.onClick())
 
