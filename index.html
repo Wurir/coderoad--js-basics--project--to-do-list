@@ -9,22 +9,25 @@
     
     <script src="./js/Button.js"></script>
     <script src="./js/Input.js"></script>
+    <script src="./js/Form.js"></script>
     <script src="./js/Task.js"></script>
     <script src="./js/ToDo.js"></script>
 
     <script>
+        const form1 = new Form('Tekst', (value) => alert(value))
         const task1 = new Task(
             {text: 'Wynieś śmieci', isCompleted: false},
              () => alert('Completed'),
              () => alert('Deleted') 
             )
-        document.body.appendChild(task1.render())
-        const task2 = new Task(
-            {text: 'Zmyj naczynia', isCompleted: true},
-             () => alert('Completed'),
-             () => alert('Deleted') 
+            const task2 = new Task(
+                {text: 'Zmyj naczynia', isCompleted: true},
+                () => alert('Completed'),
+                () => alert('Deleted') 
             )
-        document.body.appendChild(task2.render())
+            document.body.appendChild(form1.render())
+            document.body.appendChild(task1.render())
+            document.body.appendChild(task2.render())
     </script>
 </body>
 </html>
