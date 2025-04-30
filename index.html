@@ -14,20 +14,11 @@
     <script src="./js/ToDo.js"></script>
 
     <script>
-        const form1 = new Form('Tekst', (value) => alert(value))
-        const task1 = new Task(
+        const todo1 = new ToDo([
             {text: 'Wynieś śmieci', isCompleted: false},
-             () => alert('Completed'),
-             () => alert('Deleted') 
-            )
-            const task2 = new Task(
-                {text: 'Zmyj naczynia', isCompleted: true},
-                () => alert('Completed'),
-                () => alert('Deleted') 
-            )
-            document.body.appendChild(form1.render())
-            document.body.appendChild(task1.render())
-            document.body.appendChild(task2.render())
+            {text: 'Zmyj naczynia', isCompleted: true}
+        ])
+        document.body.appendChild(todo1.render())
     </script>
 </body>
 </html>
