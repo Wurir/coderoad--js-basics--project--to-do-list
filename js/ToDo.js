@@ -4,11 +4,16 @@ class ToDo{
         this.container = null
     }
 
+    setTasks(newTasks){
+        this.tasks = newTasks
+        this.render()
+    }
+
     deleteTask(indexOfTask){
-        this.tasks = this.tasks.filter((taskData, index)=> {
+        const newTasks = this.tasks.filter((taskData, index)=> {
             return index !== indexOfTask
         })
-        this.render()
+        this.setTasks(newTasks)
     }
 
     addTask(text){
@@ -16,12 +21,12 @@ class ToDo{
             text: text,
             isCompleted: false
         }
-        this.tasks = this.tasks.concat(newTaskData)
-        this.render()
+        const newTasks = this.tasks.concat(newTaskData)
+        this.setTasks(newTasks)
     }
 
     toggleComplete(indexOfTask){
-        this.tasks = this.tasks.map((taskData, index) => {
+        const newTasks = this.tasks.map((taskData, index) => {
             if(index !== indexOfTask){
                 return taskData
             }
@@ -30,7 +35,7 @@ class ToDo{
                 isCompleted: !taskData.isCompleted
             }
         })
-        this.render()
+        this.setTasks(newTasks)
     }
 
     renderTasks(){
