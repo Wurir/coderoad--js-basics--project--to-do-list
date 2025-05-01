@@ -20,9 +20,26 @@ class ToDo{
         this.render()
     }
 
+    toggleComplete(indexOfTask){
+        this.tasks = this.tasks.map((taskData, index) => {
+            if(index !== indexOfTask){
+                return taskData
+            }
+            return {
+                text: taskData.text,
+                isCompleted: !taskData.isCompleted
+            }
+        })
+        this.render()
+    }
+
     renderTasks(){
-        this.tasks.forEach((taskData)=> {
-            const task =  new Task(taskData, ()=> {})
+        this.tasks.forEach((taskData, index)=> {
+            const task =  new Task(
+                taskData,
+                ()=> this.toggleComplete(index),
+                ()=> this.deleteTask(index)
+            )
             this.container.appendChild(task.render())
         })
     }
