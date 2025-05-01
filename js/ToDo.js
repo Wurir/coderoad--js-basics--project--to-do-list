@@ -11,6 +11,15 @@ class ToDo{
         this.render()
     }
 
+    addTask(text){
+        const newTaskData = {
+            text: text,
+            isCompleted: false
+        }
+        this.tasks = this.tasks.concat(newTaskData)
+        this.render()
+    }
+
     renderTasks(){
         this.tasks.forEach((taskData)=> {
             const task =  new Task(taskData, ()=> {})
@@ -24,7 +33,7 @@ class ToDo{
         }
         this.container.innerHTML = ''
 
-        const form =  new Form('', (value)=> alert(value))
+        const form =  new Form('', (value)=> this.addTask(value))
         this.container.appendChild(form.render())
         this.renderTasks()
         
