@@ -1,16 +1,17 @@
 class ToDo{
-    constructor(tasks){
-        this.tasks = this.loadTasks() || []
+    constructor(storageKey){
+        this.storageKey = storageKey || 'todo'
         this.container = null
+        this.tasks = this.loadTasks() || []
     }
 
     loadTasks(){
-        return JSON.parse(localStorage.getItem('todo'))
+        return JSON.parse(localStorage.getItem(this.storageKey))
     }
 
     setTasks(newTasks){
         this.tasks = newTasks
-        localStorage.setItem('todo', JSON.stringify(this.tasks))
+        localStorage.setItem(this.storageKey, JSON.stringify(this.tasks))
         this.render()
     }
 
